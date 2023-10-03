@@ -1,0 +1,10 @@
+---
+# tasks file for dockerdesktop
+- name: Install Docker Desktop
+  become: true
+  ansible.windows.win_package:
+    path: https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
+    arguments:
+      - install
+      - --quiet
+    product_id: '{8BDFE669-9705-4184-9368-DB9CE581E0E7}'

@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Chun Pan Yung
+  description: Install software using traditional method, no package manager.
+  license: MIT
+
+  min_ansible_version: "core 2.15"
+
+  platforms:
+    - name: Windows
+      versions:
+        - all
+
+  galaxy_tags:
+    - windows
+
+dependencies: []

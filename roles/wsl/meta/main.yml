@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Chun Pan Yung
+  description: WSL home configuration.
+
+  license: MIT
+
+  min_ansible_version: "2.11"
+
+  platforms:
+    - name: Debian
+      versions:
+        - all
+
+  galaxy_tags: []
+
+dependencies: []

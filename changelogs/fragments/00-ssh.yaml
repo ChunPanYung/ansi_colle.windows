@@ -1,0 +1,4 @@
+---
+minor_changes:
+  - "Create bootstrap.ps1 for setting up Windows with SSH."
+  - "Add File and printer sharing into boostrap.ps1."

@@ -1,0 +1,9 @@
+---
+git:
+  ansi_colle: main
+  slim_linux: main
+  comm_config: main
+url:
+  ansi_colle: git+https://github.com/ChunPanYung/ansi_colle.git
+  slim_linux: git+https://github.com/ChunPanYung/slim_linux.git
+  comm_config: git+https://github.com/ChunPanYung/comm_config.git

@@ -1,0 +1,11 @@
+---
+- name: Configure Windows
+  hosts: windows
+  tasks:
+    - name: Ping test
+      tags: ping
+      ansible.windows.win_ping:
+
+    - name: Check my user name
+      ansible.windows.win_whoami:
+      # become: true
