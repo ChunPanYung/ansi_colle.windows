@@ -1,0 +1,25 @@
+---
+# tasks file for scoop
+- name: Install pre-requisite packages
+  community.windows.win_scoop:
+    name:
+      - 7zip
+      - git
+
+- name: Install development packages
+  community.windows.win_scoop:
+    name: python
+
+- name: Add Scoop buckets
+  community.windows.win_scoop_bucket:
+    name: extras
+
+- name: Install packages from extras bucket
+  community.windows.win_scoop:
+    name:
+      - kopia
+      - keepassxc
+      - nextcloud
+      - qownnotes
+
+# TODO: Steam, powershell, nextcloud

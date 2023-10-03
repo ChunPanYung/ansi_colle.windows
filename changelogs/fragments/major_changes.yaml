@@ -1,0 +1,10 @@
+---
+major_changes:
+  - Add tasks to install steam.
+  - Install packages via scoop.
+  - Install nextcloud.
+  - Install qownnotes via scoop.
+  - Install vscode via winget.
+  - Install firefox via winget.
+  - New role for install dev tools on windows.
+  - New role for install docker desktop.

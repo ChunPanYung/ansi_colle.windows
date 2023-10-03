@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Chun Pan Yung
+  description: Install software using scoop package manager.
+
+  license: MIT
+
+  min_ansible_version: "core 2.14"
+
+  platforms:
+    - name: Windows
+      versions:
+        - all
+
+  galaxy_tags:
+    - windows
+
+dependencies: []

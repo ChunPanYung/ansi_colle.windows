@@ -1,0 +1,3 @@
+---
+install_github_api: >-
+  https://api.github.com/repos/nextcloud-releases/desktop/releases/latest

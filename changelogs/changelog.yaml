@@ -1,0 +1,20 @@
+---
+ancestor: null
+releases:
+  1.0.0:
+    changes:
+      major_changes:
+        - Test `antsibull-changelog` functionality.
+        - Test release on `ansi_colle.windows`.
+        - role wsl -> configure wsl for ansible development.
+      minor_changes:
+        - role home_config -> Placeholder tasks.
+      release_summary: '| Release Date: 2023-05-15
+
+        | Test release with `antsibull-changelog`
+
+        '
+    fragments:
+      - 1.0.0_summary.yaml
+      - 20230530-initial_release.yml
+    release_date: '2023-05-30'

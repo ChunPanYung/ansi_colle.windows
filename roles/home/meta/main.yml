@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Chun Pan Yung
+  description: Configure home folder on windows machine.
+
+  license: MIT
+
+  min_ansible_version: "2.11"
+
+  platforms:
+    - name: Windows
+      versions:
+        - all
+
+  galaxy_tags: []
+
+dependencies: []

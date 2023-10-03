@@ -1,0 +1,38 @@
+---
+# tasks file for install
+- name: Require runas to install the following
+  become: true
+  block:
+    - name: Install  Microsoft Visual C++ Redistributable packages
+      ansible.windows.win_package:
+        path: https://aka.ms/vs/17/release/vc_redist.x64.exe
+        arguments:
+          - /quiet
+        product_id: '{8BDFE669-9705-4184-9368-DB9CE581E0E7}'
+
+- name: Install Nextcloud Desktop via GitHub
+  block:
+    - name: Retrieve information from GitHub api
+      ansible.windows.win_uri:
+        url: "{{ install_github_api }}"
+        return_content: true
+      register: install_api
+
+    - name: Create temporary directory
+      ansible.windows.win_tempfile:
+        state: directory
+      register: install_tempdir
+
+    - name: Download Nextcloud Desktop for Windows OS
+      ansible.windows.win_get_url:
+        url: "{{ install_api.json.assets[0].browser_download_url }}"
+        dest: "{{ install_tempdir.path }}\\nextcloud.msi"
+
+    - name: Install Nextcloud Desktop Client
+      become: true
+      ansible.windows.win_package:
+        path: "{{ install_tempdir.path }}\\nextcloud.msi"
+        arguments:
+          - /quiet
+          - /norestart
+        product_id: '{E78CC941-C105-4677-9AC1-D3A54B20FDE1}'

@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Chun Pan Yung
+  description: Install package via winget.
+  license: MIT
+
+  min_ansible_version: "core 2.15"
+
+  platforms:
+    - name: Windows
+      versions:
+        - all
+
+  galaxy_tags: []
+
+dependencies: []
