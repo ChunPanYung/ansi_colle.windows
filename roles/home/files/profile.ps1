@@ -6,3 +6,26 @@ function Prompt {
     Write-Host ">" -ForegroundColor Blue -NoNewline
     return " "
 }
+
+# pip powershell completion start
+if ((Test-Path Function:\TabExpansion) -and -not `
+    (Test-Path Function:\_pip_completeBackup)) {
+    Rename-Item Function:\TabExpansion _pip_completeBackup
+}
+function TabExpansion($line, $lastWord) {
+    $lastBlock = [regex]::Split($line, '[|;]')[-1].TrimStart()
+    if ($lastBlock.StartsWith("C:\Users\privacy4ever\AppData\Local\Scoop\apps\python\current\python.exe -m pip ")) {
+        $Env:COMP_WORDS=$lastBlock
+        $Env:COMP_CWORD=$lastBlock.Split().Length - 1
+        $Env:PIP_AUTO_COMPLETE=1
+        (& C:\Users\privacy4ever\AppData\Local\Scoop\apps\python\current\python.exe -m pip).Split()
+        Remove-Item Env:COMP_WORDS
+        Remove-Item Env:COMP_CWORD
+        Remove-Item Env:PIP_AUTO_COMPLETE
+    }
+    elseif (Test-Path Function:\_pip_completeBackup) {
+        # Fall back on existing tab expansion
+        _pip_completeBackup $line $lastWord
+    }
+}
+# pip powershell completion end
