@@ -30,4 +30,4 @@
     scope: user
     elements:
       - "{{ ansible_user_dir }}\\AppData\\Local\\User32"
-      - "{{ ansible_user_dir }}\\AppData\\Local\\WindowsApps"
+      - "{{ ansible_user_dir }}\\AppData\\Local\\Microsoft\\WindowsApps"
