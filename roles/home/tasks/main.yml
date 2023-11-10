@@ -29,4 +29,5 @@
   ansible.windows.win_path:
     scope: user
     elements:
-      - "{{ ansible_user_dir }}\\AppData\\Local\\User64"
+      - "{{ ansible_user_dir }}\\AppData\\Local\\User32"
+      - "{{ ansible_user_dir }}\\AppData\\Local\\WindowsApps"
