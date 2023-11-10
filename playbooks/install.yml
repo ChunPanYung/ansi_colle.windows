@@ -1,0 +1,26 @@
+---
+- name: Install collections and roles
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Install community collections
+      community.general.ansible_galaxy_install:
+        type: collection
+        name: "{{ item }}"
+      loop:
+        - community.general
+        - community.windows
+
+    - name: Install custom collections
+      community.general.ansible_galaxy_install:
+        type: collection
+        name: "{{ item }}"
+      loop:
+        - git+https://github.com/ChunPanYung/ansi_colle-slim_os.git,main
+
+    - name: Install this collection
+      vars:
+        this_collection: git+https://github.com/ChunPanYung/ansi_colle-windows.git
+      community.general.ansible_galaxy_install:
+        type: collection
+        name: "{{ this_collection }},{{ branch_tag | default('main') }}"
