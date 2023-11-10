@@ -24,3 +24,9 @@
   ansible.windows.win_copy:
     src: profile.ps1
     dest: "{{ home_pwsh_dir }}\\"
+
+- name: Setup user PATH environment variable
+  ansible.windows.win_path:
+    scope: user
+    elements:
+      - "{{ ansible_user_dir }}\\AppData\\Local\\User64"
