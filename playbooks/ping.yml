@@ -8,4 +8,11 @@
 
     - name: Check my user name
       ansible.windows.win_whoami:
-      # become: true
+
+    - name: Check my sudo user name
+      ansible.windows.win_whoami:
+      become: true
+
+    - name: Check ansible facts
+      ansible.builtin.debug:
+        vars: ansible_facts
