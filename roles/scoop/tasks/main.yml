@@ -4,10 +4,6 @@
   community.windows.win_scoop_bucket:
     name: extras
 
-- name: Install jq.
-  community.windows.win_scoop:
-    name: jq
-
 - name: Install commonly used packages
   community.windows.win_scoop:
     name:
