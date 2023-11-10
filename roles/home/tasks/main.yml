@@ -27,11 +27,11 @@
 
 - name: DEBUG
   ansible.builtin.debug:
-    var: ansible_facts
+    var: "{{ lookup('ansible.builtin.env', 'PUBLIC') }}"
 
 - name: Setup user PATH environment variable
   ansible.windows.win_path:
     scope: user
     elements:
-      - "{{ ansible_user_dir }}\\AppData\\Local\\User32"
-      - "{{ ansible_user_dir }}\\AppData\\Local\\Microsoft\\WindowsApps"
+      - "{{ ansible_facts.env.LOCALAPPDATA }}\\User32"
+      - "{{ ansible_facts.env.LOCALAPPDATA }}\\Microsoft\\WindowsApps"
