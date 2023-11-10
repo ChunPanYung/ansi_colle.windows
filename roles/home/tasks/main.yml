@@ -23,4 +23,18 @@
 - name: Copy profile.ps1
   ansible.windows.win_copy:
     src: profile.ps1
-    dest: "{{ home_pwsh_dir }}\\"
+    dest: "{{ home_pwsh_dir }}\\Microsoft.PowerShell_profile.ps1"
+
+- name: DEBUG
+  ansible.builtin.debug:
+    var: "{{ item }}"
+  loop:
+    - APPDATA
+    - LOCALAPPDATA
+
+- name: Setup user PATH environment variable
+  ansible.windows.win_path:
+    scope: user
+    elements:
+      - "{{ ansible_user_dir }}\\AppData\\Local\\User32"
+      - "{{ ansible_user_dir }}\\AppData\\Local\\Microsoft\\WindowsApps"

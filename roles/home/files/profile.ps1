@@ -7,20 +7,6 @@ function Prompt {
     return " "
 }
 
-### Start Environment Variables Setup ###
-Set-Variable -Name "UserPath" -Option ReadOnly -Scope Private `
-    -Value ([Environment]::GetEnvironmentVariable("Path", "User"))
-
-if( $UserPath -notlike "*Scripts*") {
-    $EnvVar = ";$Env:USERPROFILE\Documents\Powershell\Scripts"
-    [Environment]::SetEnvironmentVariable("Path", $UserPath + $EnvVar, "User")
-}
-if( $UserPath -notmatch "User32") {
-    $EnvVar = ";$Env:LOCALAPPDATA\User32"
-    [Environment]::SetEnvironmentVariable("Path", $UserPath + $EnvVar, "User")
-}
-### End Environment Variables Setup ###
-
 # pip powershell completion start
 if ((Test-Path Function:\TabExpansion) -and -not `
     (Test-Path Function:\_pip_completeBackup)) {
@@ -28,11 +14,11 @@ if ((Test-Path Function:\TabExpansion) -and -not `
 }
 function TabExpansion($line, $lastWord) {
     $lastBlock = [regex]::Split($line, '[|;]')[-1].TrimStart()
-    if ($lastBlock.StartsWith("$Env:LOCALAPPDATA\Programs\Python\Python311\python.exe -m pip ")) {
+    if ($lastBlock.StartsWith("C:\Users\privacy4ever\AppData\Local\Scoop\apps\python\current\python.exe -m pip ")) {
         $Env:COMP_WORDS=$lastBlock
         $Env:COMP_CWORD=$lastBlock.Split().Length - 1
         $Env:PIP_AUTO_COMPLETE=1
-        (& $Env:LOCALAPPDATA\Programs\Python\Python311\python.exe -m pip).Split()
+        (& C:\Users\privacy4ever\AppData\Local\Scoop\apps\python\current\python.exe -m pip).Split()
         Remove-Item Env:COMP_WORDS
         Remove-Item Env:COMP_CWORD
         Remove-Item Env:PIP_AUTO_COMPLETE
@@ -43,6 +29,3 @@ function TabExpansion($line, $lastWord) {
     }
 }
 # pip powershell completion end
-
-# Function
-function pip { python -m pip $args }

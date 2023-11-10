@@ -1,4 +1,0 @@
----
-ansible_connection: ssh
-ansible_become_method: runas
-ansible_shell_type: powershell

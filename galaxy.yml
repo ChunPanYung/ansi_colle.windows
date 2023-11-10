@@ -17,10 +17,10 @@ tags:
   - windows
 
 dependencies:
-  "ansible.windows": "*"
+  "ansi_colle.mods": "*"
   "community.general": "*"
   "community.windows": "*"
 
-repository: http://example.com/repository
+repository: http://github.com/ChunPanYung/ansi_colle-windows
 
 build_ignore: []
