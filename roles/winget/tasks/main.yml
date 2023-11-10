@@ -2,25 +2,13 @@
 # tasks file for winget
 - name: Install Steam
   become: true
-  ansible.windows.win_command: winget install --Id Valve.Steam
-  register: winget_cmd
-  # failed_when: winget_cmd.stdout.find('No package found') != 1
-  # changed_when: winget_cmd.stdout.find('Successfully installed') != 1
-  failed_when:
-    - winget_cmd.rc != 0
-    - winget_cmd.rc != 2316632107
-  changed_when: winget_cmd.rc == 1
+  ansi_colle.mods.winget_cmd:
+    id: Valve.Steam
 
 - name: Install Visual Studio Code
-  become: false
-  ansible.windows.win_command: winget install --Id Microsoft.VisualStudioCode
-  register: winget_cmd
-  failed_when: "'No package found' in winget_cmd.stdout"
-  changed_when: "'Successfully installed' in winget_cmd.stdout"
+  ansi_colle.mods.winget_cmd:
+    id: Microsoft.VisualStudioCode
 
 - name: Install Mozilla Firefox
-  become: true
-  ansible.windows.win_command: winget install --Id Mozilla.Firefox
-  register: winget_cmd
-  failed_when: "'No package found' in winget_cmd.stdout"
-  changed_when: "'Successfully installed' in winget_cmd.stdout"
+  ansi_colle.mods.winget_cmd:
+    id: Mozilla.Firefox
