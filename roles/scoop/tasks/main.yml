@@ -2,17 +2,23 @@
 # tasks file for scoop
 - name: Add Scoop buckets
   community.windows.win_scoop_bucket:
-    name: "extras"
+    name: "{{ item }}"
+  loop:
+    - main
+    - extras
 
-- name: Install commonly used packages
+- name: Install required packages
   community.windows.win_scoop:
-    name:
-      - "7zip"
-      - "python"
+    name: git  # Required by scoop to update packages
+
+- name: Install programming languages
+  community.windows.win_scoop:
+    name: python
 
 - name: Install packages from extras bucket
   community.windows.win_scoop:
     name:
+      - 7zip
       - kopia
       - keepassxc
       - nextcloud
