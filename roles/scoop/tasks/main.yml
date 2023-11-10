@@ -1,13 +1,10 @@
 ---
 # tasks file for scoop
-- name: Install pre-requisite packages
+- name: Install commonly used packages
   community.windows.win_scoop:
     name:
       - 7zip
-
-- name: Install development packages
-  community.windows.win_scoop:
-    name: "python"
+      - python
 
 - name: Add Scoop buckets
   community.windows.win_scoop_bucket:
