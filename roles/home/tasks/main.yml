@@ -27,10 +27,10 @@
 
 - name: DEBUG
   ansible.builtin.debug:
-    var: "{{ item }}"
+    msg: "{{ item }}"
   loop:
-    - APPDATA
-    - LOCALAPPDATA
+    - "{{ lookup('env', 'APPDATA') }}"
+    - "{{ lookup('env', 'LOCALAPPDATA') }}"
 
 - name: Setup user PATH environment variable
   ansible.windows.win_path:
