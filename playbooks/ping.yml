@@ -15,4 +15,4 @@
 
     - name: Check ansible facts
       ansible.builtin.debug:
-        vars: ansible_facts
+        var: ansible_facts
