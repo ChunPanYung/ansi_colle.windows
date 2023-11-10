@@ -17,7 +17,7 @@ tags:
   - windows
 
 dependencies:
-  "ansible.windows": "*"
+  "ansi_colle.mods": "*"
   "community.general": "*"
   "community.windows": "*"
 
