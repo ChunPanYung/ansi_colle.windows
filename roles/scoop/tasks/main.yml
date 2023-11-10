@@ -7,7 +7,7 @@
 
 - name: Install development packages
   community.windows.win_scoop:
-    name: python
+    name: "python"
 
 - name: Add Scoop buckets
   community.windows.win_scoop_bucket:
