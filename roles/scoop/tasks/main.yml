@@ -1,14 +1,18 @@
 ---
 # tasks file for scoop
+- name: Add Scoop buckets
+  community.windows.win_scoop_bucket:
+    name: extras
+
+- name: Install jq.
+  community.windows.win_scoop:
+    name: jq
+
 - name: Install commonly used packages
   community.windows.win_scoop:
     name:
       - 7zip
       - python
-
-- name: Add Scoop buckets
-  community.windows.win_scoop_bucket:
-    name: extras
 
 - name: Install packages from extras bucket
   community.windows.win_scoop:
