@@ -25,13 +25,9 @@
     src: profile.ps1
     dest: "{{ home_pwsh_dir }}\\Microsoft.PowerShell_profile.ps1"
 
-- name: DEBUG
-  ansible.builtin.debug:
-    var: "{{ lookup('ansible.builtin.env', 'PUBLIC') }}"
-
 - name: Setup user PATH environment variable
   ansible.windows.win_path:
     scope: user
     elements:
-      - "{{ ansible_facts.env.LOCALAPPDATA }}\\User32"
-      - "{{ ansible_facts.env.LOCALAPPDATA }}\\Microsoft\\WindowsApps"
+      - "{{ ansible_env.LOCALAPPDATA }}\\User32"
+      - "{{ ansible_env.LOCALAPPDATA }}\\Microsoft\\WindowsApps"
