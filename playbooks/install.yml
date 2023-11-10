@@ -16,6 +16,7 @@
         type: collection
         name: "{{ item }}"
       loop:
+        - git+https://github.com/ChunPanYung/ansi_colle-mods.git,main
         - git+https://github.com/ChunPanYung/ansi_colle-slim_os.git,main
 
     - name: Install this collection
