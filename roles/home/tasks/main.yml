@@ -31,3 +31,10 @@
     elements:
       - "{{ ansible_env.LOCALAPPDATA }}\\User32"
       - "{{ ansible_env.LOCALAPPDATA }}\\Microsoft\\WindowsApps"
+
+- name: Setup .gitconfig file
+  community.general.ini_file:
+    path: "{{ ansible_user_dir }}\\.gitconfig"
+    section: init
+    option: defaultBranch
+    value: main
