@@ -1,11 +1,8 @@
 ---
 # tasks file for scoop
-- name: Add Scoop buckets
+- name: Add the extras bucket
   community.windows.win_scoop_bucket:
-    name: "{{ item }}"
-  loop:
-    - main
-    - extras
+    name: extras
 
 - name: Install required packages
   community.windows.win_scoop:
