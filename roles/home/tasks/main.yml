@@ -7,13 +7,15 @@
     data: 1
     type: dword
 
-- name: Create folder for development
+- name: Create folder for home directory
   ansible.windows.win_file:
     path: "{{ item }}"
     state: directory
   loop:
     - "{{ ansible_user_dir }}\\.ssh"
     - "{{ ansible_user_dir }}\\Repos"
+    - "{{ ansible_env.LOCALAPPDATA }}\\User32"
+
 
 - name: Create folder for PowerShell settings
   ansible.windows.win_file:
