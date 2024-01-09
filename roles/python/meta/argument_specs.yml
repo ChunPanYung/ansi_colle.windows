@@ -1,0 +1,9 @@
+---
+argument_specs:
+  main:
+    short_description: Main entry point for python role.
+    description:
+      - This is main entrypoint for python role for Windows.
+    author:
+      - Chun Pan Yung
+    options: {}

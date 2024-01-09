@@ -1,0 +1,12 @@
+---
+# tasks file for python
+- name: Install programming languages
+  community.windows.win_scoop:
+    name: python
+
+- name: Setup environment variables for current user
+  ansible.windows.win_environment:
+    level: user
+    variables:
+      PIPX_BIN_DIR: "{{ ansible_env.LOCALAPPDATA }}\\User32"
+      PIPX_MAN_DIR: "{{ ansible_env.LOCALAPPDATA }}\\pipx\\man"

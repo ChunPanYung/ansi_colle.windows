@@ -11,10 +11,6 @@
   community.windows.win_scoop:
     name: git  # Required by scoop to update packages
 
-- name: Install programming languages
-  community.windows.win_scoop:
-    name: python
-
 - name: Install packages from extras bucket
   community.windows.win_scoop:
     name:

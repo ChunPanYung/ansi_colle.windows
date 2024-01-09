@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Chun Pan Yung
+  description: Install and setup python
+
+  license: MIT
+
+  min_ansible_version: "2.15"
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags: []
+
+dependencies:
+  - ansi_colle.windows.home
