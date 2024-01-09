@@ -6,7 +6,7 @@
 
 - name: Install required packages
   community.windows.win_scoop:
-    name: git  # Required by scoop to update packages
+    name: "git"  # Required by scoop to update packages
 
 - name: Install packages from extras bucket
   community.windows.win_scoop:
