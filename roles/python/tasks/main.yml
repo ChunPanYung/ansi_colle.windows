@@ -1,8 +1,8 @@
 ---
 # tasks file for python
-- name: Install programming languages
-  community.windows.win_scoop:
-    name: python
+# - name: Install python programming languages
+#   community.windows.win_scoop:
+#     name: python
 
 - name: Setup environment variables for current user
   ansible.windows.win_environment:
