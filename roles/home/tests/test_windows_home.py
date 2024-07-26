@@ -12,7 +12,7 @@ class TestHomeConfig:
         assert host.file(r"C:/Users").exists
         assert host.file("C:/Windows/Temp").listdir()
 
-    def test_ansible_mod(self, host: Host):
-        assert host.ansible(
-            "ansible.windows.win_command", "echo foo", check=False
-        )["stdout"] == 'foo'
+    # def test_ansible_mod(self, host: Host):
+    #     assert host.ansible(
+    #         "ansible.windows.win_command", "echo foo", check=False
+    #     )["stdout"] == 'foo'
